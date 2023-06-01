@@ -21,4 +21,5 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/nampilin', 'EloquentController@nampilin');
 Route::get('/nampilin/input', 'EloquentController@nampilinInput');
-Route::post('/nampilin/inputprocess', 'EloquentController@nampilinInputProcess');
+Route::get('/nampilin/edit/{id}', 'EloquentController@nampilinEdit');
+Route::get('/nampilin/hapus/{id}', 'EloquentController@nampilinHapus');

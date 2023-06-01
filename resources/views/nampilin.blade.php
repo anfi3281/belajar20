@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@php
+    session_start();
+@endphp
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,17 +33,24 @@
                     <th>No</th>
                     <th>Nama</th>
                     <th>Alamat</th>
+                    <th>Keterangan</th>
                 </tr>
                 @foreach ($pegawai as $daftarPegawai)
                     <tr>
                         <td>{{ $daftarPegawai->id }}</td>
                         <td>{{ $daftarPegawai->nama }}</td>
                         <td>{{ $daftarPegawai->alamat }}</td>
+                        <td>
+                            <a name="edit" class="btn btn-warning"
+                                href="/nampilin/edit/{{ $daftarPegawai->id }}">Edit</a>
+                            <a name="hapus" class="btn btn-danger"
+                                href="/nampilin/hapus/{{ $daftarPegawai->id }}">Hapus</a>
+                        </td>
                     </tr>
                 @endforeach
             </table>
         </div>
-        {{$pegawai->links()}}
+        {{ $pegawai->links() }}
     </div>
 </div>
 
