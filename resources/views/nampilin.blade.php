@@ -13,9 +13,16 @@
 
 </body>
 
-<div class="text-center container">
-    <h1 class="mb-3 mt-5">Daftar Pegawai</h1>
-    <div class="row justify-content-center">
+<div class="container">
+    <h1 class="text-center mb-3 mt-5">Daftar Pegawai</h1>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <a href="/nampilin/input"><button class="btn btn-primary mb-3">Input Data</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center justify-content-center">
         <div class="column">
             <table class="table table-striped" border="1">
                 <tr>
@@ -32,6 +39,7 @@
                 @endforeach
             </table>
         </div>
+        {{$pegawai->links()}}
     </div>
 </div>
 

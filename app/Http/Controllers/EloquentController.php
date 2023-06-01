@@ -10,4 +10,22 @@ class EloquentController extends Controller
         $pegawai = Pegawai::paginate(5);
         return view('nampilin', ['pegawai' =>$pegawai]);
     }
+
+    public function nampilinInput(){
+        return view('nampilinInput');
+    }
+
+    public function nampilinInputProcess(Request $request){
+        $this->validate($request, [
+            'nama' => 'required',
+            'alamat' => 'required'
+        ]);
+
+        Pegawai::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat
+        ]);
+        
+        return redirect('nampilin');
+    }
 }
