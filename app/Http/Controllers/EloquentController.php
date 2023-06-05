@@ -9,6 +9,9 @@ class EloquentController extends Controller
 {
     public function nampilin(){
         $pegawai = Pegawai::paginate(5);
+        $pegawaiFullData = Pegawai::all();
+        $pegawaiYangIdnyaKurangDariTujuh = Pegawai::where('id', '<', 7);
+        $pegawaiYangHurufnyaA = Pegawai::where('nama', 'like', '%a%');
         return view('nampilin', ['pegawai' =>$pegawai]);
     }
 
