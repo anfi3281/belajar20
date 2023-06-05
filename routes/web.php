@@ -23,3 +23,11 @@ Route::get('/nampilin', 'EloquentController@nampilin');
 Route::get('/nampilin/input', 'EloquentController@nampilinInput');
 Route::get('/nampilin/edit/{id}', 'EloquentController@nampilinEdit');
 Route::get('/nampilin/hapus/{id}', 'EloquentController@nampilinHapus');
+
+Route::get('/siswa', 'SiswaController@index');
+Route::get('/siswa/input', 'SiswaController@input');
+Route::get('/siswa/edit/{id}', 'SiswaController@edit');
+Route::get('/siswa/delete/{id}', 'SiswaController@delete');
+Route::post('/siswa/inputProcess', 'SiswaController@inputProcess');
+Route::post('/siswa/kelola/{id}', 'SiswaController@kelola');
+Route::post('/siswa/kelola/', 'SiswaController@kelola');
