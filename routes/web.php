@@ -42,3 +42,5 @@ Route::get('/guru/hapus_permanen_semua', 'GuruController@hapusPermanenSemua');
 
 Route::get('/pengguna', 'PenggunaController@index');
 Route::get('/article', 'ArticlesController@index');
+
+Route::get('/murid', 'MuridController@index');
