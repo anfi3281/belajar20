@@ -44,3 +44,4 @@ Route::get('/pengguna', 'PenggunaController@index');
 Route::get('/article', 'ArticlesController@index');
 
 Route::get('/murid', 'MuridController@index');
+Route::get('/murid/input', 'MuridController@tampilanInput');

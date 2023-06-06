@@ -12,4 +12,8 @@ class MuridController extends Controller
         $jenis = 1;
         return view('murid.murid', ['anak' => $murid, 'jenis' =>$jenis]);
     }
+    public function tampilanInput(){
+        $jenis = 2;
+        return view('murid.murid', ['jenis' =>$jenis]);
+    }
 }

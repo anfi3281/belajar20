@@ -20,6 +20,10 @@
                     @include('murid.view')
                 @break
 
+                @case(2)
+                    @include('murid.viewInput')
+                @break
+
                 @default
             @endswitch
         </div>

@@ -2,6 +2,8 @@
     <a href="/murid" class="btn btn-primary">Data Murid</a>
     |
     <a href="/murid/trash">Tong Sampah</a>
+    |
+    <a href="/murid/input">Input Murid</a>
     <br>
     <br>
     <table class="table table-bordered">
