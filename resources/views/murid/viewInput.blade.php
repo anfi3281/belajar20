@@ -6,5 +6,14 @@
     <a href="/murid/input" class="btn btn-primary">Input Murid</a>
     <br>
     <br>
-    
+    <form action="/murid/inputprocess">
+        <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="input" class="form-control" name="nama" placeholder="Nama">
+        </div>
+        <div class="form-group mt-2">
+            <label for="alamat">Alamat</label>
+            <input type="input" class="form-control" name="alamat" placeholder="Alamat">
+        </div>
+    </form>
 </div>
