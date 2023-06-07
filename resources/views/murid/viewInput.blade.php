@@ -15,5 +15,6 @@
             <label for="alamat">Alamat</label>
             <input type="input" class="form-control" name="alamat" placeholder="Alamat">
         </div>
+        <input type="submit" name="input" value="Input" class="btn btn-success mt-3">
     </form>
 </div>
