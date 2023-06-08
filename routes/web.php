@@ -45,3 +45,4 @@ Route::get('/article', 'ArticlesController@index');
 
 Route::get('/murid', 'MuridController@index');
 Route::get('/murid/input', 'MuridController@tampilanInput');
+Route::get('/murid/inputprocess', 'MuridController@inputProcess');

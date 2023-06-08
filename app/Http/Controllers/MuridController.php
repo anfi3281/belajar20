@@ -16,4 +16,18 @@ class MuridController extends Controller
         $jenis = 2;
         return view('murid.murid', ['jenis' =>$jenis]);
     }
+
+    public function inputProcess(Request $request){
+        $this->validate($request, [
+            'nama' => 'required',
+            'alamat' => 'required'
+        ]);
+
+        murid::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat
+        ]);
+
+        return redirect('/murid/input');
+    }
 }

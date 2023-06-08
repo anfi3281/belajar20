@@ -11,5 +11,6 @@ class murid extends Model
     use SoftDeletes;
 
     protected $table = 'murids';
+    protected $fillable = ['nama', 'alamat'];
     protected $dates = ['deleted_at'];
 }
