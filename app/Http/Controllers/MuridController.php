@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\murid;
+use App\Models\murids;
+use App\Models\orangtua;
 
-class MuridController extends Controller
+class muridController extends Controller
 {
     public function index(){
-        $murid = murid::paginate(5);
+        $murids = murids::paginate(5);
         $jenis = 1;
-        return view('murid.murid', ['anak' => $murid, 'jenis' =>$jenis]);
+        return view('murid.murid', ['anak' => $murids, 'jenis' =>$jenis]);
     }
 
     public function tampilanInput(){
@@ -20,15 +21,16 @@ class MuridController extends Controller
     }
 
     public function trash(){
-        $murid = murid::onlyTrashed()->paginate(5);
+        $murids = murids::onlyTrashed()->paginate(5);
+        $orangtua = orangtua::onlyTrashed()->paginate(5);
         $jenis = 3;
-        return view('murid.murid', ['jenis' =>$jenis, 'anak' => $murid]);
+        return view('murid.murid', ['jenis' =>$jenis, 'anak' => $murids, 'orangtua' => $orangtua]);
     }
 
     public function editView($id){
-        $murid = murid::where('id', $id)->get();
+        $murids = murids::where('id', $id)->get();
         $jenis = 4;
-        return view('murid.murid', ['jenis' =>$jenis, 'anak' => $murid]);
+        return view('murid.murid', ['jenis' =>$jenis, 'anak' => $murids]);
     }
 
     public function inputProcess(Request $request){
@@ -37,7 +39,7 @@ class MuridController extends Controller
             'alamat' => 'required'
         ]);
 
-        murid::create([
+        murids::create([
             'nama' => $request->nama,
             'alamat' => $request->alamat
         ]);
@@ -51,41 +53,49 @@ class MuridController extends Controller
             'alamat' => 'required'
         ]);
 
-        $murid = murid::find($id);
-        $murid->nama = $request->nama;
-        $murid->alamat = $request->alamat;
-        $murid->save();
+        $murids = murids::find($id);
+        $murids->nama = $request->nama;
+        $murids->alamat = $request->alamat;
+        $murids->save();
 
         return redirect('/murid');
     }
 
     public function hapusProcess($id){
-        $murid = murid::find($id);
-        $murid->delete();
+        $murids = murids::find($id);
+        $murids->delete();
+        $orangtua = orangtua::where('murids_id',$id);
+        $orangtua->delete();
         return redirect('/murid');
     }
 
     public function restore($id){
-        $murid = murid::onlyTrashed()->where('id', $id);
-        $murid->restore();
+        $murids = murids::onlyTrashed()->where('id', $id);
+        $murids->restore();
+        $orangtua = orangtua::onlyTrashed()->where('id', $id);
+        $orangtua->restore();
         return redirect('/murid/trash');
     }
 
     public function deletePermanent($id){
-        $murid = murid::onlyTrashed()->where('id', $id);
-        $murid->forceDelete();
+        $murids = murids::onlyTrashed()->where('id', $id);
+        $murids->forceDelete();
         return redirect('/murid/trash');
     }
 
     public function deleteAll(){
-        $murid = murid::onlyTrashed();
-        $murid->forceDelete();
+        $murids = murids::onlyTrashed();
+        $murids->forceDelete();
+        $orangtua = orangtua::onlyTrashed();
+        $orangtua->forceDelete();
         return redirect('/murid/trash');
     }
 
     public function restoreAll(){
-        $murid = murid::onlyTrashed();
-        $murid->restore();
+        $murids = murids::onlyTrashed();
+        $murids->restore();
+        $orangtua = orangtua::onlyTrashed();
+        $orangtua->restore();
         return redirect('/murid');
     }
 }

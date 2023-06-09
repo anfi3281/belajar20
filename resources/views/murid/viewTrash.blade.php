@@ -15,6 +15,7 @@
             <tr>
                 <th width="1%">No</th>
                 <th>Nama</th>
+                <th>Orang Tua</th>
                 <th>Alamat</th>
                 <th width="23%" class="text-center">Keterangan</th>
             </tr>
@@ -24,6 +25,11 @@
                 <tr>
                     <td>{{ $a->id }}</td>
                     <td>{{ $a->nama }}</td>
+                    @foreach ($orangtua as $ortu)
+                        @if ($ortu->id == $a->id)
+                            <td>{{ $ortu->orangtua }}</td>
+                        @endif
+                    @endforeach
                     <td>{{ $a->alamat }}</td>
                     <td>
                         <a href="/murid/restore/{{ $a->id }}" class="btn btn-warning">Restore</a>

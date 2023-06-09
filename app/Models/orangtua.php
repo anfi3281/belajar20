@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class murid extends Model
+class orangtua extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'murids';
-    protected $fillable = ['nama', 'alamat'];
+    protected $table = 'orangtuas';
     protected $dates = ['deleted_at'];
+
+    public function murids(){
+        return $this->belongsTo('App\Models\murids');
+    }
 }

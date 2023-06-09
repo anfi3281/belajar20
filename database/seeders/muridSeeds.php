@@ -15,9 +15,9 @@ class muridSeeds extends Seeder
     {
         $faker = Faker::create('id_ID');
         for($i = 1; $i <= 20; $i++){
-            DB::table('murids')->insert([
-                'nama' => $faker->name,
-                'alamat' => $faker->address
+            DB::table('orangtuas')->insert([
+                'orangtua' => $faker->name,
+                'orangtua_id' => $i
             ]);
         }
     }

@@ -11,6 +11,7 @@
             <tr>
                 <th width="1%">No</th>
                 <th>Nama</th>
+                <th>Orang Tua</th>
                 <th>Alamat</th>
                 <th width="13%" class="text-center">Keterangan</th>
             </tr>
@@ -20,6 +21,7 @@
                 <tr>
                     <td>{{ $a->id }}</td>
                     <td>{{ $a->nama }}</td>
+                    <td>{{ $a->orangtua->orangtua }}</td>
                     <td>{{ $a->alamat }}</td>
                     <td>
                         <a href="/murid/edit/{{ $a->id }}" class="btn btn-warning">Edit</a>
