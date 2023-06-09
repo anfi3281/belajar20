@@ -45,4 +45,7 @@ Route::get('/article', 'ArticlesController@index');
 
 Route::get('/murid', 'MuridController@index');
 Route::get('/murid/input', 'MuridController@tampilanInput');
-Route::get('/murid/inputprocess', 'MuridController@inputProcess');
+Route::POST('/murid/inputprocess', 'MuridController@inputProcess');
+Route::get('/murid/hapus/{id}', 'MuridController@hapusProcess');
+Route::get('/murid/trash', 'MuridController@trash');
+Route::get('/murid/restore/{id}', 'MuridController@restore');

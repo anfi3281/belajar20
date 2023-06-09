@@ -12,9 +12,17 @@ class MuridController extends Controller
         $jenis = 1;
         return view('murid.murid', ['anak' => $murid, 'jenis' =>$jenis]);
     }
+
     public function tampilanInput(){
         $jenis = 2;
-        return view('murid.murid', ['jenis' =>$jenis]);
+        return
+        view('murid.murid', ['jenis' =>$jenis]);
+    }
+
+    public function trash(){
+        $murid = murid::onlyTrashed()->paginate(5);
+        $jenis = 3;
+        return view('murid.murid', ['jenis' =>$jenis, 'anak' => $murid]);
     }
 
     public function inputProcess(Request $request){
@@ -29,5 +37,17 @@ class MuridController extends Controller
         ]);
 
         return redirect('/murid/input');
+    }
+
+    public function hapusProcess($id){
+        $murid = murid::find($id);
+        $murid->delete();
+        return redirect('/murid');
+    }
+
+    public function restore($id){
+        $murid = murid::onlyTrashed()->where('id', $id);
+        $murid->restore();
+        return redirect('/murid/trash');
     }
 }

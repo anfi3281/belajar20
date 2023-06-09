@@ -6,7 +6,8 @@
     <a href="/murid/input" class="btn btn-primary">Input Murid</a>
     <br>
     <br>
-    <form action="/murid/inputprocess">
+    <form action="/murid/inputprocess" method="POST">
+        {{ csrf_field() }}
         <div class="form-group">
             <label for="nama">Nama</label>
             <input type="input" class="form-control" name="nama" placeholder="Nama">
