@@ -4,6 +4,8 @@
     <a href="/murid/trash" class="btn btn-primary">Tong Sampah</a>
     |
     <a href="/murid/input">Input Murid</a>
+    |
+    <a href="/murid/deleteAll" class="btn btn-danger">Hapus Semuanya</a>
     <br>
     <br>
     <table class="table table-bordered">

@@ -25,6 +25,12 @@ class MuridController extends Controller
         return view('murid.murid', ['jenis' =>$jenis, 'anak' => $murid]);
     }
 
+    public function editView($id){
+        $murid = murid::where('id', $id)->get();
+        $jenis = 4;
+        return view('murid.murid', ['jenis' =>$jenis, 'anak' => $murid]);
+    }
+
     public function inputProcess(Request $request){
         $this->validate($request, [
             'nama' => 'required',
@@ -39,6 +45,20 @@ class MuridController extends Controller
         return redirect('/murid/input');
     }
 
+    public function editProcess(Request $request,$id){
+        $this->validate($request, [
+            'nama' => 'required',
+            'alamat' => 'required'
+        ]);
+
+        $murid = murid::find($id);
+        $murid->nama = $request->nama;
+        $murid->alamat = $request->alamat;
+        $murid->save();
+
+        return redirect('/murid');
+    }
+
     public function hapusProcess($id){
         $murid = murid::find($id);
         $murid->delete();
@@ -48,6 +68,18 @@ class MuridController extends Controller
     public function restore($id){
         $murid = murid::onlyTrashed()->where('id', $id);
         $murid->restore();
+        return redirect('/murid/trash');
+    }
+
+    public function deletePermanent($id){
+        $murid = murid::onlyTrashed()->where('id', $id);
+        $murid->forceDelete();
+        return redirect('/murid/trash');
+    }
+
+    public function deleteAll(){
+        $murid = murid::onlyTrashed();
+        $murid->forceDelete();
         return redirect('/murid/trash');
     }
 }

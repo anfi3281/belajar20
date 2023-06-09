@@ -28,6 +28,10 @@
                     @include('murid.viewTrash')
                 @break
 
+                @case(4)
+                    @include('murid.viewEdit')
+                @break
+
                 @default
             @endswitch
         </div>
