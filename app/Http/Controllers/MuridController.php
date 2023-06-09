@@ -82,4 +82,10 @@ class MuridController extends Controller
         $murid->forceDelete();
         return redirect('/murid/trash');
     }
+
+    public function restoreAll(){
+        $murid = murid::onlyTrashed();
+        $murid->restore();
+        return redirect('/murid');
+    }
 }

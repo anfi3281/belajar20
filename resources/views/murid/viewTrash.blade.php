@@ -1,9 +1,11 @@
 <div class="card-body">
     <a href="/murid">Data Murid</a>
     |
-    <a href="/murid/trash" class="btn btn-primary">Tong Sampah</a>
+    <a href="/murid/trash" class="btn btn-primary disabled">Tong Sampah</a>
     |
     <a href="/murid/input">Input Murid</a>
+    |
+    <a href="/murid/restoreAll" class="btn btn-warning">Restore Semuanya</a>
     |
     <a href="/murid/deleteAll" class="btn btn-danger">Hapus Semuanya</a>
     <br>
@@ -31,5 +33,5 @@
             @endforeach
         </tbody>
     </table>
-    {{$anak->links()}}
+    {{ $anak->links() }}
 </div>

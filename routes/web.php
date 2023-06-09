@@ -53,3 +53,4 @@ Route::get('/murid/trash', 'MuridController@trash');
 Route::get('/murid/restore/{id}', 'MuridController@restore');
 Route::get('/murid/deletepermanent/{id}', 'MuridController@deletePermanent');
 Route::get('/murid/deleteAll/', 'MuridController@deleteAll');
+Route::get('/murid/restoreAll/', 'MuridController@restoreAll');
