@@ -12,3 +12,4 @@ class ArticlesController extends Controller
         return view('article', ['artikel' => $artikel]);
     }
 }
+
